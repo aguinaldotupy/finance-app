@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\HasContacts;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -41,6 +42,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     use HasApiTokens;
+    use HasContacts;
 
     /**
      * The attributes that are mass assignable.
@@ -68,4 +70,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function providers()
+    {
+        return $this->belongsToMany(AuthProvider::class, 'auth_provider_user', 'user_id', 'provider_id');
+    }
+
+    public function accounts()
+    {
+        return $this->belongsToMany(Account::class, 'account_user', 'user_id', 'account_id');
+    }
 }

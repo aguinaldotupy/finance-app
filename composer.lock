@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dda6a5a1a2ad1fc78a8ed38e6394c49b",
+    "content-hash": "45963355a923a60c7d05a58bbbe0e207",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -4481,6 +4481,63 @@
             "time": "2019-10-24T08:53:34+00:00"
         },
         {
+            "name": "tupy/addresses-manager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aguinaldotupy/address.git",
+                "reference": "398119fea94c467c14c21c17b21294e57bd4280d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aguinaldotupy/address/zipball/398119fea94c467c14c21c17b21294e57bd4280d",
+                "reference": "398119fea94c467c14c21c17b21294e57bd4280d",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.4",
+                "illuminate/support": "5.6.*|5.7.*|5.8.*|^6.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.8.*",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tupy\\AddressesManager\\AddressesManagerServiceProvider"
+                    ],
+                    "aliases": {
+                        "AddressesManager": "Tupy\\AddressesManager\\AddressesManagerFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tupy\\AddressesManager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Aguinaldo Tupy",
+                    "email": "aguinaldo.tupy@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Manager Addresses",
+            "homepage": "https://github.com/aguinaldotupy/address.git",
+            "keywords": [
+                "addressesmanager"
+            ],
+            "time": "2019-12-28T21:28:21+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v3.6.0",
             "source": {
@@ -5811,16 +5868,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.3.3",
+            "version": "4.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "2ecaa9fef01634c83bfa8dc1fe35fb5cef223a62"
+                "reference": "da3fd972d6bafd628114f7e7e036f45944b62e9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/2ecaa9fef01634c83bfa8dc1fe35fb5cef223a62",
-                "reference": "2ecaa9fef01634c83bfa8dc1fe35fb5cef223a62",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/da3fd972d6bafd628114f7e7e036f45944b62e9c",
+                "reference": "da3fd972d6bafd628114f7e7e036f45944b62e9c",
                 "shasum": ""
             },
             "require": {
@@ -5832,6 +5889,7 @@
             "require-dev": {
                 "doctrine/instantiator": "^1.0.5",
                 "mockery/mockery": "^1.0",
+                "phpdocumentor/type-resolver": "0.4.*",
                 "phpunit/phpunit": "^6.4"
             },
             "type": "library",
@@ -5858,7 +5916,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2019-12-20T13:40:23+00:00"
+            "time": "2019-12-28T18:55:12+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -7222,7 +7280,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "tupy/addresses-manager": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

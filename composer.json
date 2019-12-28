@@ -1,10 +1,9 @@
 {
-    "name": "laravel/laravel",
+    "name": "aguinaldotupy/finance-app",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "Finance App",
     "keywords": [
-        "framework",
-        "laravel"
+        "tupy"
     ],
     "license": "MIT",
     "require": {
@@ -21,7 +20,8 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "1.1.*",
         "league/flysystem": "1.0.*",
-        "predis/predis": "1.1.*"
+        "predis/predis": "1.1.*",
+        "tupy/addresses-manager": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",

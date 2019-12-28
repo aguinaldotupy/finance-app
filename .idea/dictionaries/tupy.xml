@@ -2,11 +2,17 @@
   <dictionary name="tupy">
     <words>
       <w>adminlte</w>
+      <w>authenticatable</w>
+      <w>conctatable</w>
       <w>csrf</w>
       <w>enderror</w>
       <w>gstatic</w>
+      <w>instagram</w>
       <w>ionicons</w>
+      <w>mailgun</w>
       <w>navbar</w>
+      <w>skype</w>
+      <w>whatsapp</w>
     </words>
   </dictionary>
 </component>
