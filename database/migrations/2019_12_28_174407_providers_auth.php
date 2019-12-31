@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 
 class ProvidersAuth extends Migration
 {
@@ -13,18 +12,18 @@ class ProvidersAuth extends Migration
      */
     public function up()
     {
-        \Schema::create('auth_providers', function (Blueprint $table){
+        \Schema::create('auth_providers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
         });
 
-        \Schema::create('auth_provider_user', function (Blueprint $table){
-           $table->unsignedBigInteger('provider_id');
-           $table->unsignedBigInteger('user_id');
+        \Schema::create('auth_provider_user', function (Blueprint $table) {
+            $table->unsignedBigInteger('provider_id');
+            $table->unsignedBigInteger('user_id');
 
-           $table->foreign('provider_id')->references('id')->on('auth_providers')->onDelete('cascade');
-           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('provider_id')->references('id')->on('auth_providers')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         \Artisan::call('db:seed', [

@@ -16,18 +16,19 @@ class CreateAccountsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 120);
             $table->unsignedBigInteger('owner_id');
+            $table->float('balance', 8, 2);
+            $table->string('currency')->nullable();
             $table->timestamps();
 
             $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        \Schema::create('account_user', function (Blueprint $table){
+        \Schema::create('account_user', function (Blueprint $table) {
             $table->unsignedBigInteger('account_id');
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
         });
     }
 

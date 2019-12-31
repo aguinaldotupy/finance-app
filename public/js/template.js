@@ -10733,7 +10733,7 @@ __webpack_require__(/*! admin-lte */ "./node_modules/admin-lte/dist/js/adminlte.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/tupy/Projects/finance/resources/js/template.js */"./resources/js/template.js");
+module.exports = __webpack_require__(/*! /Users/tupy/Projects/finance-app/resources/js/template.js */"./resources/js/template.js");
 
 
 /***/ })

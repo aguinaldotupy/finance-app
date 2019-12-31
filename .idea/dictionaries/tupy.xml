@@ -3,6 +3,7 @@
     <words>
       <w>adminlte</w>
       <w>authenticatable</w>
+      <w>bootstrappers</w>
       <w>conctatable</w>
       <w>csrf</w>
       <w>enderror</w>
@@ -11,7 +12,12 @@
       <w>ionicons</w>
       <w>mailgun</w>
       <w>navbar</w>
+      <w>pushmenu</w>
       <w>skype</w>
+      <w>swall</w>
+      <w>transactable</w>
+      <w>transactionable</w>
+      <w>treeview</w>
       <w>whatsapp</w>
     </words>
   </dictionary>

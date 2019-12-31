@@ -32,3 +32,22 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+    <script>
+        let auth = @json(auth()->user()->only('id', 'name', 'email'));
+        console.log(auth.id);
+        if (typeof(Storage) !== "undefined") {
+            if(localStorage.getItem('user')){
+                let user = JSON.parse(localStorage.getItem('user'));
+                if(user.id !== auth.id){
+                    localStorage.setItem("user", JSON.stringify(auth));
+                }
+            } else {
+                localStorage.setItem("user", JSON.stringify(auth));
+            }
+        } else {
+            alert('Sem suporte para as funcionalidades da aplicação')
+        }
+    </script>
+@endpush

@@ -3,8 +3,8 @@
 @include('layouts.inc.header')
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper" id="app">
-        @include('layouts.inc.navbar')
-        @include('layouts.inc.sidebar')
+        <nav-bar></nav-bar>
+        <side-bar></side-bar>
         <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 @yield('content-header')
@@ -15,7 +15,7 @@
                     </div><!-- /.container-fluid -->
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
-            @include('layouts.inc.footer')
+        <app-footer></app-footer>
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->

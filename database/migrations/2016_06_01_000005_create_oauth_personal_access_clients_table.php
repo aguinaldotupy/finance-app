@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 
 class CreateOauthPersonalAccessClientsTable extends Migration
 {
@@ -23,7 +22,7 @@ class CreateOauthPersonalAccessClientsTable extends Migration
 
         \Artisan::call('db:seed', [
             '--class' => UsersTableSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
     }
 

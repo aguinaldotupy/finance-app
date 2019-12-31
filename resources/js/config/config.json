@@ -1,0 +1,190 @@
+{
+    "app": {
+        "version": "1.0.0",
+        "name": "Finance App",
+        "env": "local",
+        "debug": true,
+        "url": "http:\/\/localhost",
+        "asset_url": null,
+        "timezone": "UTC",
+        "locale": "pt-BR",
+        "fallback_locale": "en",
+        "faker_locale": "en_US",
+        "key": "base64:6GeFFdLmVBEsGxgmGIexdygjr5waSM+PQ03KYtYIUWU=",
+        "cipher": "AES-256-CBC",
+        "providers": [
+            "Illuminate\\Auth\\AuthServiceProvider",
+            "Illuminate\\Broadcasting\\BroadcastServiceProvider",
+            "Illuminate\\Bus\\BusServiceProvider",
+            "Illuminate\\Cache\\CacheServiceProvider",
+            "Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider",
+            "Illuminate\\Cookie\\CookieServiceProvider",
+            "Illuminate\\Database\\DatabaseServiceProvider",
+            "Illuminate\\Encryption\\EncryptionServiceProvider",
+            "Illuminate\\Filesystem\\FilesystemServiceProvider",
+            "Illuminate\\Foundation\\Providers\\FoundationServiceProvider",
+            "Illuminate\\Hashing\\HashServiceProvider",
+            "Illuminate\\Mail\\MailServiceProvider",
+            "Illuminate\\Notifications\\NotificationServiceProvider",
+            "Illuminate\\Pagination\\PaginationServiceProvider",
+            "Illuminate\\Pipeline\\PipelineServiceProvider",
+            "Illuminate\\Queue\\QueueServiceProvider",
+            "Illuminate\\Redis\\RedisServiceProvider",
+            "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider",
+            "Illuminate\\Session\\SessionServiceProvider",
+            "Illuminate\\Translation\\TranslationServiceProvider",
+            "Illuminate\\Validation\\ValidationServiceProvider",
+            "Illuminate\\View\\ViewServiceProvider",
+            "App\\Providers\\AppServiceProvider",
+            "App\\Providers\\AuthServiceProvider",
+            "App\\Providers\\EventServiceProvider",
+            "App\\Providers\\TelescopeServiceProvider",
+            "App\\Providers\\HorizonServiceProvider",
+            "App\\Providers\\RouteServiceProvider"
+        ],
+        "aliases": {
+            "App": "Illuminate\\Support\\Facades\\App",
+            "Arr": "Illuminate\\Support\\Arr",
+            "Artisan": "Illuminate\\Support\\Facades\\Artisan",
+            "Auth": "Illuminate\\Support\\Facades\\Auth",
+            "Blade": "Illuminate\\Support\\Facades\\Blade",
+            "Broadcast": "Illuminate\\Support\\Facades\\Broadcast",
+            "Bus": "Illuminate\\Support\\Facades\\Bus",
+            "Cache": "Illuminate\\Support\\Facades\\Cache",
+            "Config": "Illuminate\\Support\\Facades\\Config",
+            "Cookie": "Illuminate\\Support\\Facades\\Cookie",
+            "Crypt": "Illuminate\\Support\\Facades\\Crypt",
+            "DB": "Illuminate\\Support\\Facades\\DB",
+            "Eloquent": "Illuminate\\Database\\Eloquent\\Model",
+            "Event": "Illuminate\\Support\\Facades\\Event",
+            "File": "Illuminate\\Support\\Facades\\File",
+            "Gate": "Illuminate\\Support\\Facades\\Gate",
+            "Hash": "Illuminate\\Support\\Facades\\Hash",
+            "Lang": "Illuminate\\Support\\Facades\\Lang",
+            "Log": "Illuminate\\Support\\Facades\\Log",
+            "Mail": "Illuminate\\Support\\Facades\\Mail",
+            "Notification": "Illuminate\\Support\\Facades\\Notification",
+            "Password": "Illuminate\\Support\\Facades\\Password",
+            "Queue": "Illuminate\\Support\\Facades\\Queue",
+            "Redirect": "Illuminate\\Support\\Facades\\Redirect",
+            "Redis": "Illuminate\\Support\\Facades\\Redis",
+            "Request": "Illuminate\\Support\\Facades\\Request",
+            "Response": "Illuminate\\Support\\Facades\\Response",
+            "Route": "Illuminate\\Support\\Facades\\Route",
+            "Schema": "Illuminate\\Support\\Facades\\Schema",
+            "Session": "Illuminate\\Support\\Facades\\Session",
+            "Storage": "Illuminate\\Support\\Facades\\Storage",
+            "Str": "Illuminate\\Support\\Str",
+            "URL": "Illuminate\\Support\\Facades\\URL",
+            "Validator": "Illuminate\\Support\\Facades\\Validator",
+            "View": "Illuminate\\Support\\Facades\\View"
+        },
+        "0": {
+            "version": "1.0.0"
+        },
+        "1": {
+            "name": "Finance App"
+        },
+        "2": {
+            "env": "local"
+        },
+        "3": {
+            "debug": true
+        },
+        "4": {
+            "url": "http:\/\/localhost"
+        },
+        "5": {
+            "asset_url": null
+        },
+        "6": {
+            "timezone": "UTC"
+        },
+        "7": {
+            "locale": "pt-BR"
+        },
+        "8": {
+            "fallback_locale": "en"
+        },
+        "9": {
+            "faker_locale": "en_US"
+        },
+        "10": {
+            "key": "base64:6GeFFdLmVBEsGxgmGIexdygjr5waSM+PQ03KYtYIUWU="
+        },
+        "11": {
+            "cipher": "AES-256-CBC"
+        },
+        "12": {
+            "providers": [
+                "Illuminate\\Auth\\AuthServiceProvider",
+                "Illuminate\\Broadcasting\\BroadcastServiceProvider",
+                "Illuminate\\Bus\\BusServiceProvider",
+                "Illuminate\\Cache\\CacheServiceProvider",
+                "Illuminate\\Foundation\\Providers\\ConsoleSupportServiceProvider",
+                "Illuminate\\Cookie\\CookieServiceProvider",
+                "Illuminate\\Database\\DatabaseServiceProvider",
+                "Illuminate\\Encryption\\EncryptionServiceProvider",
+                "Illuminate\\Filesystem\\FilesystemServiceProvider",
+                "Illuminate\\Foundation\\Providers\\FoundationServiceProvider",
+                "Illuminate\\Hashing\\HashServiceProvider",
+                "Illuminate\\Mail\\MailServiceProvider",
+                "Illuminate\\Notifications\\NotificationServiceProvider",
+                "Illuminate\\Pagination\\PaginationServiceProvider",
+                "Illuminate\\Pipeline\\PipelineServiceProvider",
+                "Illuminate\\Queue\\QueueServiceProvider",
+                "Illuminate\\Redis\\RedisServiceProvider",
+                "Illuminate\\Auth\\Passwords\\PasswordResetServiceProvider",
+                "Illuminate\\Session\\SessionServiceProvider",
+                "Illuminate\\Translation\\TranslationServiceProvider",
+                "Illuminate\\Validation\\ValidationServiceProvider",
+                "Illuminate\\View\\ViewServiceProvider",
+                "App\\Providers\\AppServiceProvider",
+                "App\\Providers\\AuthServiceProvider",
+                "App\\Providers\\EventServiceProvider",
+                "App\\Providers\\TelescopeServiceProvider",
+                "App\\Providers\\HorizonServiceProvider",
+                "App\\Providers\\RouteServiceProvider"
+            ]
+        },
+        "13": {
+            "aliases": {
+                "App": "Illuminate\\Support\\Facades\\App",
+                "Arr": "Illuminate\\Support\\Arr",
+                "Artisan": "Illuminate\\Support\\Facades\\Artisan",
+                "Auth": "Illuminate\\Support\\Facades\\Auth",
+                "Blade": "Illuminate\\Support\\Facades\\Blade",
+                "Broadcast": "Illuminate\\Support\\Facades\\Broadcast",
+                "Bus": "Illuminate\\Support\\Facades\\Bus",
+                "Cache": "Illuminate\\Support\\Facades\\Cache",
+                "Config": "Illuminate\\Support\\Facades\\Config",
+                "Cookie": "Illuminate\\Support\\Facades\\Cookie",
+                "Crypt": "Illuminate\\Support\\Facades\\Crypt",
+                "DB": "Illuminate\\Support\\Facades\\DB",
+                "Eloquent": "Illuminate\\Database\\Eloquent\\Model",
+                "Event": "Illuminate\\Support\\Facades\\Event",
+                "File": "Illuminate\\Support\\Facades\\File",
+                "Gate": "Illuminate\\Support\\Facades\\Gate",
+                "Hash": "Illuminate\\Support\\Facades\\Hash",
+                "Lang": "Illuminate\\Support\\Facades\\Lang",
+                "Log": "Illuminate\\Support\\Facades\\Log",
+                "Mail": "Illuminate\\Support\\Facades\\Mail",
+                "Notification": "Illuminate\\Support\\Facades\\Notification",
+                "Password": "Illuminate\\Support\\Facades\\Password",
+                "Queue": "Illuminate\\Support\\Facades\\Queue",
+                "Redirect": "Illuminate\\Support\\Facades\\Redirect",
+                "Redis": "Illuminate\\Support\\Facades\\Redis",
+                "Request": "Illuminate\\Support\\Facades\\Request",
+                "Response": "Illuminate\\Support\\Facades\\Response",
+                "Route": "Illuminate\\Support\\Facades\\Route",
+                "Schema": "Illuminate\\Support\\Facades\\Schema",
+                "Session": "Illuminate\\Support\\Facades\\Session",
+                "Storage": "Illuminate\\Support\\Facades\\Storage",
+                "Str": "Illuminate\\Support\\Str",
+                "URL": "Illuminate\\Support\\Facades\\URL",
+                "Validator": "Illuminate\\Support\\Facades\\Validator",
+                "View": "Illuminate\\Support\\Facades\\View"
+            }
+        }
+    }
+}

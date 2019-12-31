@@ -15,11 +15,11 @@ class UsersTableSeeder extends Seeder
             [
                 'name' => 'Aguinaldo Tupy',
                 'email' => 'aguinaldo.tupy@gmail.com',
-                'password' => bcrypt('12345678')
-            ]
+                'password' => bcrypt('12345678'),
+            ],
         ];
 
-        foreach ($data as $user){
+        foreach ($data as $user) {
             $user = \App\Models\User::create($user);
 
             $user->createToken('Access Token')->accessToken;

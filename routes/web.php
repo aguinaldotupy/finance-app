@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->group(function () {
+    Route::GET('profile/{user}/edit', 'UserController@edit')->name('profile.edit');
+    Route::GET('transactions', 'TransactionsController@index')->name('transactions.index');
+});

@@ -15,12 +15,12 @@ class AuthProvidersTableSeeder extends Seeder
             'Google',
             'Facebook',
             'Github',
-            'Twitter'
+            'Twitter',
         ];
 
-        foreach ($data as $key => $provider){
+        foreach ($data as $key => $provider) {
             \App\Models\AuthProvider::create([
-                'name' => $provider
+                'name' => $provider,
             ]);
         }
     }

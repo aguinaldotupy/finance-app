@@ -26,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Passport::routes();
 
+        Passport::cookie('dona_maria');
+
         \Schema::defaultStringLength(191);
     }
 }

@@ -21,11 +21,14 @@
         "laravel/ui": "1.1.*",
         "league/flysystem": "1.0.*",
         "predis/predis": "1.1.*",
-        "tupy/addresses-manager": "dev-master"
+        "tupy/addresses-manager": "dev-master",
+        "tupy/contacts": "dev-master",
+        "tupy/filemanager": "^1.0@dev"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
         "facade/ignition": "^1.4",
+        "friendsofphp/php-cs-fixer": "3.0.x-dev",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
@@ -58,6 +61,9 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
+        "lint": [
+            "php-cs-fixer fix --dry-run --verbose"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
