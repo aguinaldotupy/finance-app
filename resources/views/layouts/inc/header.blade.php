@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet" />
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/template.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/icons/icons.css') }}" rel="stylesheet" />
 </head>

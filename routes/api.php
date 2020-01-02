@@ -20,4 +20,24 @@ Route::middleware('auth:api')->group(function () {
         Route::GET('/', 'UserController@user')->name('api.user');
         Route::PUT('/{user}', 'UserController@update')->name('api.user.update');
     });
+
+    Route::prefix('accounts')->group(function () {
+        Route::GET('/', 'AccountController@list')->name('api.accounts.list');
+    });
+
+    Route::prefix('transaction')->group(function () {
+        Route::POST('/', 'TransactionsController@store')->name('api.transactions.store');
+        Route::PUT('/{transaction}', 'TransactionsController@update')->name('api.transactions.update');
+    });
+
+    Route::prefix('company')->group(function () {
+        Route::GET('/search', 'CompanyController@search')->name('api.company.search');
+    });
+
+    Route::prefix('category')->group(function () {
+        Route::GET('/search', 'CategoryController@search')->name('api.category.search');
+    });
+});
+Route::prefix('transaction')->group(function () {
+    Route::GET('/calendar', 'TransactionsController@searchCalendar')->name('api.transactions.calendar');
 });

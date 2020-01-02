@@ -39,13 +39,20 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereUpdatedBy($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction whereValue($value)
  * @mixin \Eloquent
+ * @property float $amount
+ * @property string|null $date
+ * @property string|null $deleted_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Transaction whereAmount($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Transaction whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Transaction whereDeletedAt($value)
+ * @property-read \App\Models\Category $category
  */
 class Transaction extends Model
 {
     protected $table = 'transactions';
 
     protected $fillable = [
-        'account_id', 'company_id', 'name', 'value', 'type', 'status', 'observations', 'created_by', 'updated_by',
+        'account_id', 'company_id', 'category_id', 'amount', 'name', 'value', 'type', 'status', 'observations', 'created_by', 'updated_by', 'date',
     ];
 
     public function account()
@@ -56,6 +63,11 @@ class Transaction extends Model
     public function company()
     {
         return $this->belongsTo(Company::class, 'company_id', 'id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
     public function createdBy()

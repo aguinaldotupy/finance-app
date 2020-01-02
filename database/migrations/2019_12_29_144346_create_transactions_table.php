@@ -16,6 +16,7 @@ class CreateTransactionsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('account_id');
             $table->unsignedBigInteger('company_id');
+            $table->unsignedBigInteger('category_id');
             $table->string('name', 120);
             $table->float('amount', 8, 3);
             $table->string('type', 10)->index();
@@ -27,8 +28,9 @@ class CreateTransactionsTable extends Migration
             $table->unsignedBigInteger('updated_by');
             $table->softDeletes();
 
-            $table->foreign('account_id')->references('id')->on('accounts')->onDelete('cascade');
+            $table->foreign('account_id')->references('id')->on('bank_accounts')->onDelete('cascade');
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('restrict');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict');
             $table->foreign('created_by')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('updated_by')->references('id')->on('users')->onDelete('restrict');
         });

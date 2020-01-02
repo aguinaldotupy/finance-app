@@ -1,5 +1,5 @@
 <template>
-    <footer class="main-footer">
+    <footer class="main-footer text-sm">
         <div class="float-right d-none d-sm-block">
             <b>Version</b> {{ version }}
         </div>

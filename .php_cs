@@ -6,6 +6,7 @@ $finder = PhpCsFixer\Finder::create()
     ->exclude('vendor')
     ->in(__DIR__)
     ->name('*.php')
+    ->notName('*_ide_helper.php')
     ->notName('*.blade.php')
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
@@ -33,7 +34,7 @@ return PhpCsFixer\Config::create()
         'no_useless_else' => true,
         'no_useless_return' => true,
         'no_trailing_comma_in_list_call' => false,
-        'no_trailing_comma_in_singleline_array' => true,
+        'no_trailing_comma_in_singleline_array' => false,
         'not_operator_with_successor_space' => true,
         'ordered_imports' => true,
         'phpdoc_order' => true,

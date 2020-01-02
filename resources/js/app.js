@@ -8,6 +8,8 @@ require('./bootstrap');
 
 require('./routes/routes');
 
+require('./plugins/main');
+
 window.Vue = require('vue');
 
 require('./vue-filters');

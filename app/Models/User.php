@@ -86,7 +86,7 @@ class User extends Authenticatable
 
     public function accounts()
     {
-        return $this->belongsToMany(Account::class, 'account_user', 'user_id', 'account_id');
+        return $this->belongsToMany(Account::class, 'bank_account_user', 'user_id', 'account_id');
     }
 
     public function myTransactions()

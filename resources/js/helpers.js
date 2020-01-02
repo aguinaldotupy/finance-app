@@ -63,6 +63,23 @@ HelperJS = {
             }
         }
     },
+    getCookie: function (name) {
+        let matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    },
+    accessCookie(cookieName){
+        let name = cookieName + "=";
+        let allCookieArray = document.cookie.split(';');
+        for(let i = 0; i < allCookieArray.length; i++) {
+            let temp = allCookieArray[i].trim();
+            if (temp.indexOf(name) === 0){
+                return temp.substring(name.length,temp.length);
+            }
+        }
+        return "Não encontrado";
+    }
 };
 
 

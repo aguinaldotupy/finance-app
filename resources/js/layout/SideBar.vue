@@ -33,26 +33,6 @@
                                 <i class="right fas fa-angle-left"/>
                             </p>
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="far fa-circle nav-icon"/>
-                                    <p>Dashboard v1</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="far fa-circle nav-icon"/>
-                                    <p>Dashboard v2</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="far fa-circle nav-icon"/>
-                                    <p>Dashboard v3</p>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
@@ -64,6 +44,12 @@
                         <a :href="vueRoute('transactions.index')" class="nav-link">
                             <i class="nav-icon fas fa-money-bill-alt"/>
                             <p> Transações</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a :href="vueRoute('transactions.calendar')" class="nav-link">
+                            <i class="nav-icon far fa-calendar-alt"/>
+                            <p> Calendário</p>
                         </a>
                     </li>
                 </ul>

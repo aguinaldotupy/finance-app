@@ -7,10 +7,12 @@
       <w>conctatable</w>
       <w>csrf</w>
       <w>enderror</w>
+      <w>flatpickr</w>
       <w>gstatic</w>
       <w>instagram</w>
       <w>ionicons</w>
       <w>mailgun</w>
+      <w>multiselect</w>
       <w>navbar</w>
       <w>pushmenu</w>
       <w>skype</w>
@@ -18,6 +20,7 @@
       <w>transactable</w>
       <w>transactionable</w>
       <w>treeview</w>
+      <w>vodafone</w>
       <w>whatsapp</w>
     </words>
   </dictionary>

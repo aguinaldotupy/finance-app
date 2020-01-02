@@ -18,6 +18,11 @@ class CreateCategoriesTable extends Migration
             $table->string('type')->nullable(); //Receita | Despesa
             $table->timestamps();
         });
+
+        \Artisan::call('db:seed', [
+            '--class' => CategoryTableSeeder::class,
+            '--force' => true
+        ]);
     }
 
     /**

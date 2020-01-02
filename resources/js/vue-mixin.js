@@ -49,21 +49,16 @@ Vue.mixin({
          *
          * @param method {string}
          * @param uri {string}
-         * @param form {object}
-         * @param callback {string} default = api
+         * @param form {object} | Object with information
+         * @param callback {boolean} default = api
          */
-        persistSubmit: function (method, uri, form, callback= 'api') {
+        persistSubmit: function (method, uri, form, callback= false) {
             this.errors = [];
 
             axios[method](uri, form).then(response => {
-                console.log(typeof callback);
-
-                if(callback === 'api'){
+                if(!callback){
                     window.location = response.data.redirect;
-                } else if (typeof callback === 'string') {
-                    window.location = callback;
                 }
-
             }).catch(error => {
                 if (typeof error.response.data === 'object') {
                     this.errors = formatterErrors(error.response.data.errors);

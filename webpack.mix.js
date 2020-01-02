@@ -12,7 +12,16 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+   .sass('resources/sass/app.scss', 'public/css')
+    .webpackConfig({
+        resolve: {
+            alias: {
+                '@': path.resolve(__dirname, 'resources/js/'),
+                '~': path.resolve(__dirname, 'resources/sass/'),
+                '!': path.resolve(__dirname, 'node_modules/'),
+            },
+        },
+    });
 
 mix.js("resources/js/template.js", "public/js")
     .sass("resources/sass/template.scss", "public/css");

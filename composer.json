@@ -62,7 +62,7 @@
     "prefer-stable": true,
     "scripts": {
         "lint": [
-            "php-cs-fixer fix --dry-run --verbose"
+            "php-cs-fixer fix --dry-run --verbose --config=\".php_cs\""
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

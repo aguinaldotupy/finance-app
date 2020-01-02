@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\FullCalendarResource;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 
@@ -30,18 +31,30 @@ class TransactionsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        //
+        $dataForm = $request->all();
+
+        $validator = self::validator($dataForm);
+
+        if ($validator->fails()) {
+            return  response()->json(['errors' => $validator->errors()], 401);
+        }
+
+        Transaction::create($dataForm);
+
+        $data = ['Adicionado'];
+
+        return response()->json($data, 200);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Transaction  $transaction
+     * @param Transaction $transaction
      * @return \Illuminate\Http\Response
      */
     public function show(Transaction $transaction)
@@ -52,7 +65,7 @@ class TransactionsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Transaction  $transaction
+     * @param Transaction $transaction
      * @return \Illuminate\Http\Response
      */
     public function edit(Transaction $transaction)
@@ -63,23 +76,66 @@ class TransactionsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Transaction  $transaction
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Transaction $transaction
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, Transaction $transaction)
     {
-        //
+        $dataForm = $request->all();
+
+        $validator = self::validator($dataForm);
+
+        if ($validator->fails()) {
+            return  response()->json(['errors' => $validator->errors()], 401);
+        }
+
+        $transaction->update($dataForm);
+
+        $data = ['Atualizado'];
+
+        return response()->json($data, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Transaction  $transaction
+     * @param Transaction $transaction
      * @return \Illuminate\Http\Response
      */
     public function destroy(Transaction $transaction)
     {
         //
+    }
+
+    public function calendar()
+    {
+        return view('transaction.calendar');
+    }
+
+    public function searchCalendar()
+    {
+        $data = [
+            'data' => FullCalendarResource::collection(Transaction::get()),
+        ];
+
+        return response()->json($data, 200);
+    }
+
+    protected function validator($data)
+    {
+        $rules = [
+            'name' => 'required',
+            'amount' => 'required',
+            'date' => 'required',
+        ];
+
+        $messages = [
+            'name.required' => 'Obrigatório indicar o nome da movimentação',
+            'amount.required' => 'Obrigatório indicar o valor da movimentação',
+            'date.required' => 'Obrigatório indicar a data da movimentação',
+        ];
+
+        return \Validator::make($data, $rules, $messages);
     }
 }

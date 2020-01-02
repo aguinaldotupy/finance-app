@@ -34,6 +34,12 @@
     "passport.personal.tokens.destroy": "oauth\/personal-access-tokens\/{token_id}",
     "api.user": "api\/user",
     "api.user.update": "api\/user\/{user}",
+    "api.accounts.list": "api\/accounts",
+    "api.transactions.store": "api\/transaction",
+    "api.transactions.update": "api\/transaction\/{transaction}",
+    "api.company.search": "api\/company\/search",
+    "api.category.search": "api\/category\/search",
+    "api.transactions.calendar": "api\/transaction\/calendar",
     "login": "login",
     "logout": "logout",
     "register": "register",
@@ -44,5 +50,6 @@
     "password.confirm": "password\/confirm",
     "home": "home",
     "profile.edit": "profile\/{user}\/edit",
-    "transactions.index": "transactions"
+    "transactions.index": "transactions",
+    "transactions.calendar": "calendar"
 }

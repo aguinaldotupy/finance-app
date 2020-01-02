@@ -26,12 +26,28 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|Transaction[] $transactions
  * @property-read int|null $transactions_count
+ * @property float $balance
+ * @property string|null $currency
+ * @property-read Entity $entity
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Account whereBalance($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Account whereCurrency($value)
+ * @property int|null $entity_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Account whereEntityId($value)
  */
 class Account extends Model
 {
-    protected $table = 'accounts';
+    protected $table = 'bank_accounts';
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name', 'entity_id', 'owner_id', 'currency', 'balance',
+    ];
+
+    protected $with = ['entity'];
+
+    public function entity()
+    {
+        return $this->belongsTo(Entity::class, 'entity_id', 'id');
+    }
 
     public function owner()
     {
@@ -40,7 +56,7 @@ class Account extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'account_user', 'account_id', 'user_id');
+        return $this->belongsToMany(User::class, 'bank_account_user', 'account_id', 'user_id');
     }
 
     public function transactions()

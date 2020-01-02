@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 @include('layouts.inc.header')
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse">
     <div class="wrapper" id="app">
         <nav-bar></nav-bar>
         <side-bar></side-bar>
