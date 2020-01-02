@@ -21,7 +21,7 @@ class CreateCategoriesTable extends Migration
 
         \Artisan::call('db:seed', [
             '--class' => CategoryTableSeeder::class,
-            '--force' => true
+            '--force' => true,
         ]);
     }
 

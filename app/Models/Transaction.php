@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $account_id
  * @property int $company_id
+ * @property int $category_id
  * @property string $name
  * @property float $value
  * @property string $type
@@ -45,7 +46,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Transaction whereAmount($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Transaction whereDate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Transaction whereDeletedAt($value)
- * @property-read \App\Models\Category $category
+ * @property-read Category $category
  */
 class Transaction extends Model
 {
