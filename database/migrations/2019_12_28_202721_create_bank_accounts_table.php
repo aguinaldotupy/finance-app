@@ -33,10 +33,10 @@ class CreateBankAccountsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
-        \Artisan::call('db:seed', [
-            '--class' => AccountsTableSeeder::class,
-            '--force' => true,
-        ]);
+//        \Artisan::call('db:seed', [
+//            '--class' => AccountsTableSeeder::class,
+//            '--force' => true,
+//        ]);
     }
 
     /**

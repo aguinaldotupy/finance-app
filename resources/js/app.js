@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import TooltipCalendar from "./components/TooltipCalendar";
+
 require('./bootstrap');
 
 require('./routes/routes');
@@ -43,6 +45,9 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+
+window.Constructor = Vue.extend(TooltipCalendar);
 
 const app = new Vue({
     el: '#app',

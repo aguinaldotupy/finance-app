@@ -11,32 +11,39 @@ class AccountsTableSeeder extends Seeder
      */
     public function run()
     {
+        $millennium = \App\Models\Entity::whereName('Millennium bcp')->first();
+        $bb = \App\Models\Entity::whereName('Banco do Brasil')->first();
+        $itau = \App\Models\Entity::whereName('Banco Itaú')->first();
+        $n26 = \App\Models\Entity::whereName('N26 Europe')->first();
+
+        $user = \App\Models\User::first();
+
         $accounts = [
             [
                 'name' => 'Millennium',
-                'entity_id' => 1,
-                'owner_id' => 1,
+                'entity_id' => $millennium->id,
+                'owner_id' => $user->id,
                 'currency' => '€',
                 'balance' => 0,
             ],
             [
                 'name' => 'BB Gui',
-                'entity_id' => 3,
-                'owner_id' => 1,
+                'entity_id' => $bb->id,
+                'owner_id' => $user->id,
                 'currency' => 'R$',
                 'balance' => 0,
             ],
             [
                 'name' => 'Itaú Gui',
-                'entity_id' => 4,
-                'owner_id' => 1,
+                'entity_id' => $itau->id,
+                'owner_id' => $user->id,
                 'currency' => 'R$',
                 'balance' => 0,
             ],
             [
                 'name' => 'N26',
-                'entity_id' => 2,
-                'owner_id' => 1,
+                'entity_id' => $n26->id,
+                'owner_id' => $user->id,
                 'currency' => '€',
                 'balance' => 0,
             ],

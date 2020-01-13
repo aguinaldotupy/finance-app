@@ -27,6 +27,7 @@ Route::middleware('auth:api')->group(function () {
 
     Route::prefix('transaction')->group(function () {
         Route::POST('/', 'TransactionsController@store')->name('api.transactions.store');
+        Route::GET('/search', 'TransactionsController@search')->name('api.transactions.search');
         Route::PUT('/{transaction}', 'TransactionsController@update')->name('api.transactions.update');
     });
 

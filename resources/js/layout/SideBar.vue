@@ -4,6 +4,7 @@
         <!-- Brand Logo -->
         <a class="brand-link" href="/">
             <img
+                src="https://placehold.it/160x160/c98959/ffffff/&text=WA"
                 :alt="app_name"
                 class="brand-image img-circle elevation-3"
                 style="opacity: .8">
@@ -15,7 +16,7 @@
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img alt="User Image" class="img-circle elevation-2" src="">
+                    <img alt="User Image" class="img-circle elevation-2" src="https://placehold.it/160x160/c98959/ffffff/&text=WA">
                 </div>
                 <div class="info">
                     <a :href="vueRoute('profile.edit', auth.id)" class="d-block">{{ auth.name }}</a>

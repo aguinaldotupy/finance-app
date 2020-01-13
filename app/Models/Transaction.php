@@ -53,7 +53,7 @@ class Transaction extends Model
     protected $table = 'transactions';
 
     protected $fillable = [
-        'account_id', 'company_id', 'category_id', 'amount', 'name', 'value', 'type', 'status', 'observations', 'created_by', 'updated_by', 'date',
+        'account_id', 'company_id', 'category_id', 'amount', 'name', 'amount', 'type', 'status', 'observations', 'created_by', 'updated_by', 'date',
     ];
 
     public function account()

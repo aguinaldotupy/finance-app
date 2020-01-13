@@ -1,153 +1,247 @@
 <template>
-    <div id="modal-transactions" class="modal-light-dark modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title text-white">Visita</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <modal @close="toggleModal" v-show="showModal">
+        <h3 slot="header">Movimentação</h3>
+        <div class="row" slot="body">
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input class="form-control" id="name" placeholder="Identificação da movimentação" type="text" v-model="form.name"/>
                 </div>
-                <div class="modal-body p-4">
-                    <grouped-errors :errors="errors"/>
-                    <div class="row">
-                        <div class="form-group mb-3 required col-md-6 col-xs-12">
-
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label>Status</label>
+                    <multiselect
+                        :options="status"
+                        deselect-label="Can't remove this value"
+                        placeholder="Select one"
+                        v-model="form.status"
+                    />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label>Categoria</label>
+                    <multiselect
+                        :options="categories"
+                        @select="selectCategory"
+                        deselect-label="Can't remove this value"
+                        label="name"
+                        placeholder="Select one"
+                        track-by="id"
+                        v-model="categorySelected"
+                    />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <multiselect
+                        :options="types"
+                        deselect-label="Can't remove this value"
+                        placeholder="Select one"
+                        v-model="form.type"
+                    />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="date">Data da movimentação</label>
+                    <input class="form-control" id="date" name="date" type="date" />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label>Empresa</label>
+                    <multiselect
+                        :options="companies"
+                        @select="selectedCompany"
+                        deselect-label="Can't remove this value"
+                        label="name"
+                        placeholder="Select one"
+                        track-by="id"
+                        v-model="companySelected"
+                    />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label>Conta</label>
+                    <multiselect
+                        :options="bankAccounts"
+                        @select="selectAccount"
+                        deselect-label="Can't remove this value"
+                        label="name"
+                        placeholder="Select one"
+                        track-by="id"
+                        v-model="accountSelected"
+                    />
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="amount">Valor</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" v-if="accountSelected">{{ accountSelected.currency}} </span>
+                            <span class="input-group-text" v-else>€</span>
                         </div>
-                        <div class="form-group mb-3 required col-md-6 col-xs-12">
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group col-xl-6 col-md-12">
-                            <label for="date_scheduled">Data Visita</label>
-                            <input type="text" id="date_scheduled" class="form-control" required autocomplete="off" placeholder="" ref="date_scheduled">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="form-group mb-3 col-md-12 col-xs-12">
-                            <label for="observations">Observações</label>
-                            <textarea id="observations" name="observations" rows="2" class="form-control">
-                            </textarea>
-                        </div>
+                        <input class="form-control" id="amount" name="amount" placeholder="Quanto gastou?" type="text" v-model="form.amount"/>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Sair</button>
-                    <button type="button" class="btn btn-info waves-effect waves-light" @click="submit">Gravar</button>
+            </div>
+            <div class="col-12">
+                <div class="form-group">
+                    <label for="observations">Observações</label>
+                    <textarea class="form-control" id="observations" name="observations" placeholder="Descreve as observações necessárias referente a movimentação" rows="2" v-model="form.observations" />
                 </div>
             </div>
         </div>
-    </div><!-- /.modal -->
+        <div class="" slot="footer">
+            <button @click="toggleModal" class="btn btn-default float-left">
+                Fechar
+            </button>
+            <button @click="submit" class="btn btn-success" type="button" v-if="this.form.id === undefined">Gravar</button>
+            <button @click="update" class="btn btn-success" type="button" v-else>Atualizar</button>
+        </div>
+    </modal>
 </template>
 
 <script>
-    import flatpickr from 'flatpickr';
     import GroupedErrors from "../../components/GroupedErrors";
+    import Modal from "../../components/Modal";
+    import Multiselect from 'vue-multiselect';
+    import flat from 'flatpickr';
+
+    const flatpicker = flat;
 
     export default {
         name: "ModalTransaction",
-        components: {GroupedErrors},
+        components: {
+            Multiselect,
+            Modal,
+            GroupedErrors
+        },
         data() {
             return {
                 errors: [],
-                shops: [],
-                quarterSelected: '',
-                quarters: [
-                    {quarter: 1, name: '1º Trimestre: de Janeiro a Março'},
-                    {quarter: 2, name: '2º Trimestre: de Abril a Junho'},
-                    {quarter: 3, name: '3º Trimestre: de Julho a Setembro'},
-                    {quarter: 4, name: '4º Trimestre: de Outubro a Dezembro'}
-                ],
-                yearSelected: '',
-                years: [],
-                routing: []
+                actionModal: 'store',
+                bankAccounts: [],
+                accountSelected: undefined,
+                companies: [],
+                companySelected: undefined,
+                status: ['Pago', 'Pendente', 'Agendado'],
+                types: ['Crédito', 'Débito'],
+                categories: [],
+                categorySelected: undefined,
+                form: {}
             }
+        },
+        model: {
+            prop: 'showModal',
+            event: 'toggleModal',
         },
         props: {
             action: String,
-            showModal: {
-                type: Boolean,
-                required: true
-            },
+            showModal: Boolean,
         },
         mounted(){
+            this.resetForm();
+            setTimeout(() => {
+                this.initFlatpickr()
+            }, 200);
+
+            this.getCategories();
+            this.getAccounts();
+            this.form.owner_id = this.auth.id;
+            this.form.created_by = this.auth.id;
+            this.form.updated_by = this.auth.id;
+            this.getCompanies();
         },
         watch: {
-            showModal(newValue, oldValue){
-                if(newValue){
-                    //
-                }
-            }
         },
         methods: {
+            toggleModal(){
+                this.$emit('toggleModal', !this.showModal)
+            },
+            selectAccount(selected){
+                this.form.account_id = selected.id;
+                this.form.entity_id = selected.entity.id
+            },
+            selectedCompany(selected){
+                this.form.company_id = selected.id;
+            },
+            selectCategory(selected){
+                this.form.category_id = selected.id
+            },
+            getAccounts(){
+                axios.get(route('api.accounts.list')).then(({data}) => {
+                    this.bankAccounts = data.accounts
+                }).catch(error => {
+                    console.log(error)
+                })
+            },
+            getCompanies(){
+                axios.get(route('api.company.search')).then(({data}) => {
+                    this.companies = data.companies
+                }).catch(error => {
+                    console.log(error)
+                })
+            },
+            getCategories(){
+                axios.get(route('api.category.search')).then(({data}) => {
+                    this.categories = data.categories;
+                }).catch(error => {
+                    console.log(error);
+                })
+            },
             initFlatpickr() {
                 let self = this;
-                flatpickr('#suggestion_visit_date', {
+                flatpickr('#date', {
                     weekNumbers: true,
                     altInput: true,
                     altFormat: "d/m/Y",
                     dateFormat: "Y-m-d",
+                    defaultDate: self.form.date,
                     onChange: function(selectedDates, dateStr, instance) {
-                        self.$nextTick()
-                    }
-                });
-
-                flatpickr('#date_scheduled', {
-                    weekNumbers: true,
-                    altInput: true,
-                    altFormat: "d/m/Y",
-                    dateFormat: "Y-m-d",
-                    onChange: function(selectedDates, dateStr, instance) {
+                        self.form.date = dateStr;
                         self.$nextTick()
                     }
                 });
             },
             submit(){
-                let link = '';
-                let method = '';
+                this.form.amount = parseFloat(this.form.amount);
 
-                if(this.action === 'store'){
-                    link = route('api.visit.store');
-                    method = 'post';
-                    this.visit.classNames = 'scheduled';
-                    this.$parent.calendarEvents.push(this.visit)
-                } else if(this.action === 'update'){
-                    console.log(this.visit.id);
-                    link = route('api.visit.update', this.visit.id);
-                    method = 'put'
-                }
-
-                console.log(momentJS(this.visit.date_scheduled).isoWeekday());
-
-                if(link !== '' && method !== ''){
-                    this.persistSubmit(method, link, this.visit)
-                }
-            },
-            persistSubmit(method, uri, form) {
-                this.errors = [];
-
-                axios[method](uri, form).then(response => {
-                    //location.reload()
-                    //this.$parent.eventServer.push(form)
-                    console.log(form)
-                }).catch(error => {
-                    if (typeof error.response.data === 'object') {
-                        this.errors = formatterErrors(error.response.data.errors);
-                    } else {
-                        this.errors = ['Something went wrong. Please try again.'];
-                    }
-
-                    $('html,body').animate({ scrollTop: 0 }, 400);
+                this.persistSubmit('post', route('api.transactions.store'), this.form, true).then(() => {
+                    this.$emit('success', this.form);
+                    this.toggleModal();
+                }).catch((error) => {
+                    console.error(error);
                 });
+
             },
+            resetForm(){
+                this.form = {
+                    id: undefined,
+                    name: undefined,
+                    amount: undefined,
+                    account_id: undefined,
+                    owner_id: undefined,
+                    entity_id: undefined,
+                    observations: undefined,
+                    type: undefined,
+                    status: undefined,
+                    created_by: undefined,
+                    updated_by: undefined,
+                    company_id: undefined,
+                    date: undefined,
+                    category_id: undefined,
+                }
+            }
         }
     }
 </script>
 
 <style lang="scss">
+    @import "../../../sass/plugins/flatpickr";
 </style>

@@ -17,11 +17,10 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-default float-left" @click="close">
-                        Fechar
-                    </button>
                     <slot name="footer">
-                        default footer
+                        <button @click="close" class="btn btn-default float-left">
+                            Fechar
+                        </button>
                     </slot>
                 </div>
             </div>

@@ -31,3 +31,8 @@ Vue.filter('formatHour', function(value) {
         return momentJS(String(value)).format('h:mm:ss')
     }
 });
+
+Vue.filter('toCurrency', function (value) {
+    let val = (value / 1).toFixed(2).replace('.', ',');
+    return `R$ ${val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}`;
+});

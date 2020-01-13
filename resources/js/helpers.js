@@ -28,9 +28,9 @@ HelperJS = {
 
         HelperJS.searchInputTable(selectorDatatable, selectorInputSearch, delay);
 
-        $.fn.dataTable.ext.errMode = 'throw';
+        //$.fn.dataTable.ext.errMode = 'throw';
         $(selectorDatatable).on('error.dt', function(e, settings, techNote, message) {
-            console.log(message);
+            console.error(message);
             //function javascript no SeetAlert
             alertErrorDatatable();
         });

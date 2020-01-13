@@ -18,6 +18,26 @@ class TransactionsController extends Controller
         return view('transaction.index');
     }
 
+    public function search()
+    {
+        $model = Transaction::query();
+
+        $model->with([
+            'createdBy' => function ($user) {
+                $user->select(['id', 'name']);
+            },
+            'updatedBy' => function ($user) {
+                $user->select(['id', 'name']);
+            },
+            'account',
+            'company',
+            'category',
+        ]);
+
+        return \DataTables::eloquent($model)
+            ->toJson();
+    }
+
     /**
      * Show the form for creating a new resource.
      *

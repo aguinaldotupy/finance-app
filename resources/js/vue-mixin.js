@@ -19,7 +19,7 @@ Vue.mixin({
             return regex.test(String(email).toLowerCase());
         },
         isEmailValid(email, classSuccess = '', classError = 'parsley-error'){
-            return (email == "") ? "" : (this.validateEmail(email)) ? classSuccess : classError;
+            return (email === "") ? "" : (this.validateEmail(email)) ? classSuccess : classError;
         },
         existsNifOrEmail(value) {
             axios.get('/admin/user/verify-user-by-nif-or-email', {params: {
@@ -55,7 +55,7 @@ Vue.mixin({
         persistSubmit: function (method, uri, form, callback= false) {
             this.errors = [];
 
-            axios[method](uri, form).then(response => {
+            return axios[method](uri, form).then(response => {
                 if(!callback){
                     window.location = response.data.redirect;
                 }

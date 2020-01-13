@@ -36,6 +36,7 @@
     "api.user.update": "api\/user\/{user}",
     "api.accounts.list": "api\/accounts",
     "api.transactions.store": "api\/transaction",
+    "api.transactions.search": "api\/transaction\/search",
     "api.transactions.update": "api\/transaction\/{transaction}",
     "api.company.search": "api\/company\/search",
     "api.category.search": "api\/category\/search",

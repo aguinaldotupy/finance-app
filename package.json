@@ -36,6 +36,7 @@
         "moment": "latest",
         "overlayscrollbars": "^1.10.0",
         "sweetalert2": "latest",
+        "v-tooltip": "^2.0.2",
         "vue-multiselect": "^2.1.6"
     }
 }
